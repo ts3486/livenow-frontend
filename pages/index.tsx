@@ -1,4 +1,4 @@
-import Button from '../stories/Button/Button';
+import Button from '../components/atoms/Button/Button';
 
 export default function Home() {
   return (

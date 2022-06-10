@@ -1,10 +1,10 @@
-// YourComponent.stories.ts|tsx
+//TextField.stories.ts|tsx
 
 import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Button from './Button';
+import TextField from './TextField';
 
 //👇 This default export determines where your story goes in the story list
 export default {
@@ -12,12 +12,12 @@ export default {
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: 'Button',
-  component: Button,
-} as ComponentMeta<typeof Button>;
+  title: 'Atoms/TextField',
+  component: TextField,
+} as ComponentMeta<typeof TextField>;
 
 //👇 We create a “template” of how args map to rendering
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof TextField> = (args) => <TextField {...args} />;
 
 export const FirstStory = Template.bind({});
 
