@@ -33,6 +33,26 @@ Default.parameters = {
 Default.args = {
   id: '1',
   title: 'Button',
+  function: () => {
+    alert('button clicked');
+  },
+};
+
+export const Create = Template.bind({});
+
+Create.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/6cLpgJCLxfkINbP6kt1Yz5/Storybook_test?node-id=0%3A1',
+  },
+};
+
+Create.args = {
+  id: '2',
+  title: 'Create',
+  function: () => {
+    alert('button clicked');
+  },
 };
 
 export const Delete = Template.bind({});
@@ -45,6 +65,9 @@ Delete.parameters = {
 };
 
 Delete.args = {
-  id: '2',
+  id: '3',
   title: 'Delete',
+  function: () => {
+    alert('button clicked');
+  },
 };
