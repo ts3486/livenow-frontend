@@ -5,7 +5,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { withDesign } from 'storybook-addon-designs';
 
-import Button from './Button';
+import VenueCard from './VenueCard';
 
 //👇 This default export determines where your story goes in the story list
 export default {
@@ -13,28 +13,25 @@ export default {
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: 'Atoms/Button',
-  component: Button,
+  title: 'Organisms/VenueCard',
+  component: VenueCard,
   decorators: [withDesign],
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof VenueCard>;
 
 //👇 We create a “template” of how args map to rendering
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof VenueCard> = (args) => <VenueCard {...args} />;
 
 export const Default = Template.bind({});
 
 Default.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/5OKuBHAVTnNvJYr6QbQlu6/LiveNow?node-id=116%3A10',
+    url: 'https://www.figma.com/file/5OKuBHAVTnNvJYr6QbQlu6/LiveNow?node-id=117%3A3',
   },
 };
 
 Default.args = {
-  title: 'Button',
-  onClick: () => {
-    alert('button clicked');
-  },
+  title: 'VenueCard',
 };
 
 export const Create = Template.bind({});
@@ -42,15 +39,12 @@ export const Create = Template.bind({});
 Create.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/5OKuBHAVTnNvJYr6QbQlu6/LiveNow?node-id=113%3A121',
+    url: 'https://www.figma.com/file/5OKuBHAVTnNvJYr6QbQlu6/LiveNow?node-id=117%3A3',
   },
 };
 
 Create.args = {
   title: 'Create',
-  onClick: () => {
-    alert('button clicked');
-  },
 };
 
 export const Delete = Template.bind({});
@@ -58,13 +52,10 @@ export const Delete = Template.bind({});
 Delete.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/5OKuBHAVTnNvJYr6QbQlu6/LiveNow?node-id=113%3A121',
+    url: 'https://www.figma.com/file/5OKuBHAVTnNvJYr6QbQlu6/LiveNow?node-id=117%3A3',
   },
 };
 
 Delete.args = {
   title: 'Delete',
-  onClick: () => {
-    alert('button clicked');
-  },
 };
