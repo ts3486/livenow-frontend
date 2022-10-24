@@ -7,13 +7,25 @@ type LayoutProps = Required<{
   readonly children: ReactElement;
 }>;
 
+interface ThemeContextInterface {
+  theme: string;
+}
+
+const defaultContext = {
+  theme: 'theme-default',
+};
+
+export const ThemeContext = React.createContext<ThemeContextInterface>(defaultContext);
+
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <Paper>
-      <Header />
-      <main style={{ width: '1200px' }}>{children}</main>
-      <Footer />
-    </Paper>
+    <ThemeContext.Provider value={defaultContext}>
+      <Paper>
+        <Header />
+        <main style={{ width: '1200px' }}>{children}</main>
+        <Footer />
+      </Paper>
+    </ThemeContext.Provider>
   );
 };
 

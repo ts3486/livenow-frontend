@@ -3,3 +3,10 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.theme-default {
+  --color-custom-100: 41, 89, 57;
+  --color-custom-200: 233, 176, 223;
+  --color-custom-300: 173, 238, 207;
+  --color-custom-400: 232, 239, 235;
+}
