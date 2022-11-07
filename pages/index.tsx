@@ -3,8 +3,12 @@ import Cover from '@/components/organisms/Cover/Cover';
 export default function Home() {
   return (
     <div>
-      <Cover />
-      <h1 className='text-3xl font-bold underline'>Hello world!</h1>
+      <section>
+        <Cover />
+      </section>
+      <section className='mx-40'>
+        <h1>Weclome!</h1>
+      </section>
     </div>
   );
 }

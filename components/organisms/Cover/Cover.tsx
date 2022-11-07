@@ -10,15 +10,21 @@ const helloWorld = () => {
 
 const Cover = (props: any) => {
   return (
-    <Box>
-      <Image src={coverImage} alt='Picture of the author' width={2000} height={1500} />
-      <Box>
-        <Typography variant='h2'>Find a venue</Typography>
-        <Typography variant='body1'></Typography>
-        <Button title='SIGNUP' onClick={helloWorld} />
-        <Button title='LOGIN' onClick={helloWorld} />
-      </Box>
-    </Box>
+    <div className='flex flex-row'>
+      <section className='w-3/5'>
+        <Image src={coverImage} alt='Picture of the author' width={2500} height={1700} />
+      </section>
+
+      <section className='w-2/5 p-20'>
+        <h1 className='text-8xl'>Find a venue</h1>
+        <p className='text-2xl p-1'>Find a venue that suits your needs...</p>
+        <div className='spacer py-40'></div>
+        <div>
+          <Button title='SIGNUP' onClick={helloWorld} />
+          <Button title='LOGIN' onClick={helloWorld} />
+        </div>
+      </section>
+    </div>
   );
 };
 
