@@ -20,8 +20,16 @@ const Cover = (props: any) => {
         <p className='text-2xl p-1'>Find a venue that suits your needs...</p>
         <div className='spacer py-40'></div>
         <div>
-          <Button title='SIGNUP' onClick={helloWorld} />
-          <Button title='LOGIN' onClick={helloWorld} />
+          <Button
+            title='SIGNUP'
+            onClick={helloWorld}
+            style='bg-blue-500 hover:bg-blue-700 text-white font-bold m-1 py-2 px-4 rounded'
+          />
+          <Button
+            title='LOGIN'
+            onClick={helloWorld}
+            style='bg-blue-500 hover:bg-blue-700 text-white font-bold m-1 py-2 px-4 rounded'
+          />
         </div>
       </section>
     </div>
