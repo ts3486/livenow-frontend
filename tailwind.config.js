@@ -9,47 +9,18 @@ module.exports = {
       xl: '1280px',
       '2xl': '1536px',
     },
-    extend: {
-      colors: {
-        custom: {
-          100: ({ opacityVariable, opacityValue }) => {
-            if (opacityValue !== undefined) {
-              return `rgba(var(--color-custom-100), ${opacityValue})`;
-            }
-            if (opacityVariable !== undefined) {
-              return `rgba(var(--color-custom-100), var(${opacityVariable}, 1))`;
-            }
-            return `rgb(var(--color-custom-100))`;
-          },
-          200: ({ opacityVariable, opacityValue }) => {
-            if (opacityValue !== undefined) {
-              return `rgba(var(--color-custom-200), ${opacityValue})`;
-            }
-            if (opacityVariable !== undefined) {
-              return `rgba(var(--color-custom-200), var(${opacityVariable}, 1))`;
-            }
-            return `rgb(var(--color-custom-200))`;
-          },
-          300: ({ opacityVariable, opacityValue }) => {
-            if (opacityValue !== undefined) {
-              return `rgba(var(--color-custom-300), ${opacityValue})`;
-            }
-            if (opacityVariable !== undefined) {
-              return `rgba(var(--color-custom-300), var(${opacityVariable}, 1))`;
-            }
-            return `rgb(var(--color-custom-300))`;
-          },
-          400: ({ opacityVariable, opacityValue }) => {
-            if (opacityValue !== undefined) {
-              return `rgba(var(--color-custom-400), ${opacityValue})`;
-            }
-            if (opacityVariable !== undefined) {
-              return `rgba(var(--color-custom-400), var(${opacityVariable}, 1))`;
-            }
-            return `rgb(var(--color-custom-400))`;
-          },
-        },
-      },
+    colors: {
+      blue: '#1fb6ff',
+      white: '#ffffff',
+      pink: '#ff49db',
+      orange: '#ff7849',
+      green: '#13ce66',
+      yellow: '#ffc82c',
+      gray: '#8492a6',
+    },
+    fontFamily: {
+      sans: ['Graphik', 'sans-serif'],
+      serif: ['Merriweather', 'serif'],
     },
   },
   plugins: [],
