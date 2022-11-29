@@ -10,13 +10,14 @@ module.exports = {
       '2xl': '1536px',
     },
     colors: {
+      primary: '#5D3FD3',
       blue: '#1fb6ff',
       white: '#ffffff',
       pink: '#ff49db',
       orange: '#ff7849',
       green: '#13ce66',
       yellow: '#ffc82c',
-      gray: '#8492a6',
+      gray: '#D6DFE0',
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
