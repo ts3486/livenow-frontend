@@ -30,32 +30,17 @@ Default.parameters = {
   },
 };
 
-Default.args = {
-  title: 'VenueCard',
-};
+Default.args = {};
 
-export const Create = Template.bind({});
+export const VenueCardLong = Template.bind({});
 
-Create.parameters = {
+VenueCardLong.parameters = {
   design: {
     type: 'figma',
     url: 'https://www.figma.com/file/5OKuBHAVTnNvJYr6QbQlu6/LiveNow?node-id=117%3A3',
   },
 };
 
-Create.args = {
-  title: 'Create',
-};
-
-export const Delete = Template.bind({});
-
-Delete.parameters = {
-  design: {
-    type: 'figma',
-    url: 'https://www.figma.com/file/5OKuBHAVTnNvJYr6QbQlu6/LiveNow?node-id=117%3A3',
-  },
-};
-
-Delete.args = {
-  title: 'Delete',
+VenueCardLong.args = {
+  variant: 'long',
 };
