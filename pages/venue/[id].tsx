@@ -35,7 +35,12 @@ export default function Venue() {
         </div>
       </section>
       <section className='px-64 py-12s'>
-        <div className='h-full'>calendar</div>
+        <div className='h-full'>璃日璃日</div>
+        <iframe
+          src='https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FTokyo&src=c2hpbW9tdXJhQHNvdXJjZS1tYWtlci5jby5qcA&src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%230B8043&color=%2333B679'
+          width='1200'
+          height='600'
+          scrolling='no'></iframe>
       </section>
     </div>
   );
