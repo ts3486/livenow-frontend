@@ -24,5 +24,6 @@ module.exports = {
       serif: ['Merriweather', 'serif'],
     },
   },
+  content: ['./pages/**/*.{ts,tsx}', './public/**/*.html'],
   plugins: [],
 };
