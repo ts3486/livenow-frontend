@@ -1,10 +1,17 @@
+import React, { useState } from 'react';
 import Cover from '@/components/organisms/Cover/Cover';
 import Image from 'next/image';
 import VenueCard from '@/components/organisms/VenueCard/VenueCard';
 import coverImage from '@/public/images/john-matychuk-gUK3lA3K7Yo-unsplash.jpg';
+import Button from '@/components/atoms/Button/Button';
 
 export default function Venue() {
+  const [dialog, setDialog] = useState();
   const venues = [1, 2, 3];
+
+  const onClick = () => {
+    console.log('clicked');
+  };
 
   return (
     <div>
@@ -38,9 +45,21 @@ export default function Venue() {
         <div className='h-full'>璃日璃日</div>
         <iframe
           src='https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FTokyo&src=c2hpbW9tdXJhQHNvdXJjZS1tYWtlci5jby5qcA&src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%230B8043&color=%2333B679'
-          width='1200'
+          width='100%'
           height='600'
           scrolling='no'></iframe>
+
+        <button type='button' className='bg-blue transition duration-150 ease-in-out' data-modal-toggle='applyModal'>
+          Apply for Performance
+        </button>
+
+        <div
+          className='block text-white bg-blue font-medium hidden rounded-lg text-sm px-5 py-2.5 text-center'
+          id='applyModal'
+          aria-labelledby='ApplyModal'
+          aria-hidden='true'>
+          <div>hello</div>
+        </div>
       </section>
     </div>
   );

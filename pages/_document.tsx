@@ -11,6 +11,7 @@ class MyDocument extends Document {
           <meta property='og:url' content='https://myclothingstore.com/about' />
           <meta property='og:type' content='website' />
           <link rel='icon' href='/favicon.ico' />
+          <script src='../path/to/flowbite/dist/flowbite.js'></script>
         </Head>
         <body>
           <Main />

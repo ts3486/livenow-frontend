@@ -21,6 +21,15 @@ const Button = (props: ButtonProps) => {
           <span>{props.title}</span>
         </button>
       );
+
+    case 'long':
+      return (
+        <button
+          className='w-full bg-blue hover:bg-blue text-white font-bold m-1 py-2 px-4 rounded'
+          onClick={props.onClick}>
+          <span>{props.title}</span>
+        </button>
+      );
   }
 };
 
