@@ -1,6 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './node_modules/flowbite-react/**/*.js',
+    './public/**/*.html',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+  ],
+
+  plugins: [require('flowbite/plugin')],
+
   theme: {
     screens: {
       sm: '640px',
@@ -24,6 +32,4 @@ module.exports = {
       serif: ['Merriweather', 'serif'],
     },
   },
-  content: ['./pages/**/*.{ts,tsx}', './public/**/*.html'],
-  plugins: [],
 };
