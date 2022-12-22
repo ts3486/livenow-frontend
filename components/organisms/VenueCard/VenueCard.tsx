@@ -1,18 +1,29 @@
 import React from 'react';
 import Image from 'next/image';
 import coverImage from '@/public/images/john-matychuk-gUK3lA3K7Yo-unsplash.jpg';
+import { useRouter } from 'next/router';
 
 interface VenueCardProps {
   title?: string;
   variant?: string;
+  eventPage?: string;
   function?: () => any;
 }
 
 const VenueCard = (props: VenueCardProps) => {
+  const router = useRouter();
+
+  const navigateToEventPage = (e: any) => {
+    e.preventDefault();
+    if (props.eventPage) {
+      router.push(props.eventPage);
+    }
+  };
+
   switch (props.variant) {
     default:
       return (
-        <div className='max-w-sm rounded overflow-hidden shadow-lg'>
+        <div className='max-w-sm rounded overflow-hidden shadow-lg' onClick={navigateToEventPage}>
           <Image className='w-full' src={coverImage} alt='Sunset in the mountains' height={300} width={400} />
           <div className='px-6 py-4'>
             <div className='font-bold text-xl mb-2'>The Coldest Sunset</div>

@@ -9,7 +9,7 @@ export default function Venue() {
   const [dialog, setDialog] = useState();
   const venues = [1, 2, 3];
 
-  const onClick = () => {
+  const toggleModal = () => {
     console.log('clicked');
   };
 
@@ -49,16 +49,8 @@ export default function Venue() {
           height='600'
           scrolling='no'></iframe>
 
-        <button type='button' className='bg-blue transition duration-150 ease-in-out' data-modal-toggle='applyModal'>
-          Apply for Performance
-        </button>
-
-        <div
-          className='block text-white bg-blue font-medium hidden rounded-lg text-sm px-5 py-2.5 text-center'
-          id='applyModal'
-          aria-labelledby='ApplyModal'
-          aria-hidden='true'>
-          <div>hello</div>
+        <div>
+          <button>Apply Now</button>
         </div>
       </section>
     </div>
