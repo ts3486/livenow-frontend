@@ -4,47 +4,32 @@ import coverImage from '@/public/images/john-matychuk-gUK3lA3K7Yo-unsplash.jpg';
 import ModalApply from '@/components/organisms/ModalApply/ModalApply';
 
 export default function Venue() {
-  const venues = [1, 2, 3];
+  const venues = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
     <div>
       <section className='px-64 pt-24 pb-12'>
-        <h1 className='text-5xl mb-3'>会場名</h1>
-        <div>
-          <Image className='w-full' src={coverImage} alt='Sunset in the mountains' height={700} width={1400} />
-        </div>
-        <div className='flex flex-row justify-between'>
-          <Image className='w-full ' src={coverImage} alt='Sunset in the mountains' height={400} width={640} />
-          <Image className='w-full' src={coverImage} alt='Sunset in the mountains' height={400} width={640} />
+        <div className='flex justify-between'>
+          <Image className='rounded-full' src={coverImage} alt='Rounded avatar' width={300} height={300} />
+          <div className='w-2/3 text-2xl'>
+            <div>Username</div>
+            <div>genre</div>
+            <div>profile</div>
+          </div>
         </div>
       </section>
       <section className='px-64 py-12s'>
         <div className='h-full'>
-          <h3 className='text-4xl mb-3'>概要</h3>
-          <div className='flex flex-col justify-between my-6'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quos aliquam aspernatur nam, impedit labore
-            placeat, omnis consequatur rerum animi cumque libero? Delectus, voluptas itaque suscipit ratione quaerat
-            sequi officia!
-          </div>
-          <h3 className='text-4xl mb-3'>サポートサービス</h3>
-          <div className='flex flex-col justify-between my-6'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quos aliquam aspernatur nam, impedit labore
-            placeat, omnis consequatur rerum animi cumque libero? Delectus, voluptas itaque suscipit ratione quaerat
-            sequi officia!
+          <div className='flex flex-row flex-wrap m-6'>
+            {venues.map((key) => {
+              return (
+                <div className='m-1'>
+                  <Image src={coverImage} width={400} height={400} key={key} />
+                </div>
+              );
+            })}
           </div>
         </div>
-      </section>
-      <section className='px-64 py-12s'>
-        <iframe
-          src='https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FTokyo&src=c2hpbW9tdXJhQHNvdXJjZS1tYWtlci5jby5qcA&src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%230B8043&color=%2333B679'
-          width='100%'
-          height='600'
-          scrolling='no'></iframe>
-
-        <div className='m-6'></div>
-      </section>
-      <section className='px-64 py-12s my-5'>
-        <ModalApply />
       </section>
     </div>
   );

@@ -4,8 +4,6 @@ import coverImage from '@/public/images/john-matychuk-gUK3lA3K7Yo-unsplash.jpg';
 import ModalApply from '@/components/organisms/ModalApply/ModalApply';
 
 export default function Venue() {
-  const venues = [1, 2, 3];
-
   return (
     <div>
       <section className='px-64 pt-24 pb-12'>
