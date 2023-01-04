@@ -12,6 +12,7 @@ class MyDocument extends Document {
           <meta property='og:type' content='website' />
           <link rel='icon' href='/favicon.ico' />
           <script src='../node_modules/flowbite/dist/flowbite.js' />
+          <script src='../node_modules/flowbite/dist/datepicker.js'></script>
         </Head>
         <body>
           <Main />
