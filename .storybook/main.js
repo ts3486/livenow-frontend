@@ -6,6 +6,7 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     'storybook-addon-designs',
+    '@storybook/addon-interactions',
     {
       name: '@storybook/addon-postcss',
       options: {
@@ -23,4 +24,5 @@ module.exports = {
     baseConfig.resolve.modules = [...(baseConfig.resolve.modules || []), path.resolve(__dirname, '../')];
     return baseConfig;
   },
+  staticDirs: ['../public'],
 };

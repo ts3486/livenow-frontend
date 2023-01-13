@@ -1,50 +1,81 @@
 import React, { useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import Image from 'next/image';
 import coverImage from '@/public/images/john-matychuk-gUK3lA3K7Yo-unsplash.jpg';
 import ModalApply from '@/components/organisms/ModalApply/ModalApply';
 
-export default function VenueEdit() {
-  const venues = [1, 2, 3];
+type FormModel = {
+  name: string;
+  email: string;
+  message?: string;
+};
+
+const schema: yup.SchemaOf<FormModel> = yup.object().shape({
+  name: yup.string().required('名前を入力してください'),
+  email: yup.string().email('有効なメールアドレスを入力してください').required('メールアドレスを入力してください'),
+  message: yup.string(),
+});
+
+export type Form = yup.InferType<typeof schema>;
+
+export default function Venue() {
+  const methods = useForm<Form>({
+    mode: 'onBlur',
+    defaultValues: {
+      name: '',
+      email: '',
+      message: '',
+    },
+    resolver: yupResolver(schema),
+  });
 
   return (
     <div>
       <section className='px-64 pt-24 pb-12'>
-        <h1 className='text-5xl mb-3'>会場名</h1>
-        <div>
-          <Image className='w-full' src={coverImage} alt='Sunset in the mountains' height={700} width={1400} />
-        </div>
-        <div className='flex flex-row justify-between'>
-          <Image className='w-full ' src={coverImage} alt='Sunset in the mountains' height={400} width={640} />
-          <Image className='w-full' src={coverImage} alt='Sunset in the mountains' height={400} width={640} />
-        </div>
-      </section>
-      <section className='px-64 py-12s'>
-        <div className='h-full'>
-          <h3 className='text-4xl mb-3'>概要</h3>
-          <div className='flex flex-col justify-between my-6'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quos aliquam aspernatur nam, impedit labore
-            placeat, omnis consequatur rerum animi cumque libero? Delectus, voluptas itaque suscipit ratione quaerat
-            sequi officia!
-          </div>
-          <h3 className='text-4xl mb-3'>サポートサービス</h3>
-          <div className='flex flex-col justify-between my-6'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quos aliquam aspernatur nam, impedit labore
-            placeat, omnis consequatur rerum animi cumque libero? Delectus, voluptas itaque suscipit ratione quaerat
-            sequi officia!
-          </div>
-        </div>
-      </section>
-      <section className='px-64 py-12s'>
-        <iframe
-          src='https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=Asia%2FTokyo&src=c2hpbW9tdXJhQHNvdXJjZS1tYWtlci5jby5qcA&src=amEuamFwYW5lc2UjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%230B8043&color=%2333B679'
-          width='100%'
-          height='600'
-          scrolling='no'></iframe>
+        <FormProvider {...methods}>
+          <form action='/send-data-here' method='post' className='flex flex-col justify-center'>
+            <div className='flex flex-col mb-5'>
+              <label className='text-2xl font-bold mb-5' htmlFor='message'>
+                Venue Picture:
+              </label>
+              <div className='flex justify-between'>
+                <div className='bg-gray-200 w-1/3 h-64 border-2 border-gray-300'></div>
+                <div className='bg-gray-200 w-1/3 h-64 border-2 border-gray-300'></div>
+                <div className='bg-gray-200 w-1/3 h-64 border-2 border-gray-300'></div>
+              </div>
+            </div>
+            <div className='flex flex-col justify-start mb-5'>
+              <label className='text-2xl font-bold' htmlFor='name'>
+                Username:
+              </label>
+              <input type='text' id='name' name='name' className='mt-3' />
+            </div>
 
-        <div className='m-6'></div>
-      </section>
-      <section className='px-64 py-12s my-5'>
-        <ModalApply />
+            <div className='flex flex-col justify-start mb-5'>
+              <label className='text-2xl font-bold' htmlFor='message'>
+                Profile:
+              </label>
+              <textarea id='message' name='message' className='h-48 mt-3' />
+            </div>
+
+            <div className='flex flex-col justify-start mb-5'>
+              <label className='text-2xl font-bold' htmlFor='message'>
+                Plans:
+              </label>
+              <input type='text' id='message' name='message' />
+            </div>
+
+            <div className='flex items-center justify-end border-t border-solid border-blueGray-200 rounded-b my-2'>
+              <button
+                className='w-full text-white bg-yellow-500 active:bg-yellow-700 font-bold uppercase text-sm py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mb-1 text-2xl'
+                type='button'>
+                Update
+              </button>
+            </div>
+          </form>
+        </FormProvider>
       </section>
     </div>
   );

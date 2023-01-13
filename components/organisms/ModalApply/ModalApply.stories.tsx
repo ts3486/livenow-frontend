@@ -1,12 +1,12 @@
 // YourComponent.stories.ts|tsx
 
 import React from 'react';
-
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { withDesign } from 'storybook-addon-designs';
-import coverImage from '../../../public/images/john-matychuk-gUK3lA3K7Yo-unsplash.jpg';
 
-import VenueCard from './VenueCard';
+import ModalApply from './ModalApply';
+import Modal from '../../molecules/Modal/Modal';
+import * as ModalStories from '../../molecules/Modal/Modal.stories';
 
 //👇 This default export determines where your story goes in the story list
 export default {
@@ -14,13 +14,17 @@ export default {
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
    * to learn how to generate automatic titles
    */
-  title: 'Organisms/VenueCard',
-  component: VenueCard,
+  title: 'Organisms/ModalApply',
+  component: ModalApply,
   decorators: [withDesign],
-} as ComponentMeta<typeof VenueCard>;
+} as ComponentMeta<typeof ModalApply>;
 
 //👇 We create a “template” of how args map to rendering
-const Template: ComponentStory<typeof VenueCard> = (args) => <VenueCard {...args} />;
+const Template: ComponentStory<typeof ModalApply> = () => (
+  <Modal title='申し込み'>
+    <ModalApply />
+  </Modal>
+);
 
 export const Default = Template.bind({});
 
@@ -31,20 +35,4 @@ export const Default = Template.bind({});
 //   },
 // };
 
-Default.args = {
-  title: 'Example Venue',
-  image: '/@/public/images/john-matychuk-gUK3lA3K7Yo-unsplash.jpg',
-};
-
-// export const VenueCardLong = Template.bind({});
-
-// // VenueCardLong.parameters = {
-// //   design: {
-// //     type: 'figma',
-// //     url: 'https://www.figma.com/file/5OKuBHAVTnNvJYr6QbQlu6/LiveNow?node-id=117%3A3',
-// //   },
-// // };
-
-// VenueCardLong.args = {
-//   variant: 'long',
-// };
+Default.args = {};

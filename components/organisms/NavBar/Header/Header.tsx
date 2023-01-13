@@ -2,9 +2,9 @@ import * as React from 'react';
 
 const Header = () => {
   return (
-    <nav className='bg-white border-b-2 border-border px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900'>
+    <nav className='bg-white border-b-2 border-gray px-2 sm:px-4 py-3 rounded dark:bg-gray-900'>
       <div className='container flex flex-wrap items-center justify-between mx-auto'>
-        <a href='https://flowbite.com/' className='flex items-center'>
+        <a href='/' className='flex items-center'>
           <img src='https://flowbite.com/docs/images/logo.svg' className='h-6 mr-3 sm:h-9' alt='Flowbite Logo' />
           <span className='self-center text-xl font-semibold whitespace-nowrap dark:text-white'>Flowbite</span>
         </a>
@@ -25,34 +25,34 @@ const Header = () => {
           </svg>
         </button>
         <div className='hidden w-full md:block md:w-auto' id='navbar-default'>
-          <ul className='flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700'>
+          <ul className='flex flex-col justify-center items-center p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700'>
             <li>
               <a
-                href='#'
-                className='block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white text-lg'
+                href='/'
+                className='block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-primary md:p-0 dark:text-white text-xl font-bold'
                 aria-current='page'>
                 Home
               </a>
             </li>
             <li>
               <a
-                href='#'
-                className='block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-lg'>
+                href='search'
+                className='block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl font-bold'>
                 Search
               </a>
             </li>
             <li>
               <a
-                href='#'
-                className='block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-lg'>
+                href='profile/1'
+                className='block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-primary md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl font-bold'>
                 Profile
               </a>
             </li>
 
             <li>
               <a
-                href='#'
-                className='block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-lg'>
+                href='login'
+                className='flex justify-center items-center block py-2 pl-3 pr-4 w-20 h-10 bg-secondary text-white rounded hover:bg-gray-100 md:hover:bg-gray-400 md:border-0  md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent text-xl font-bold shadow-md'>
                 Login
               </a>
             </li>

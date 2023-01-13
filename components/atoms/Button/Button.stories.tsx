@@ -16,6 +16,15 @@ export default {
   title: 'Atoms/Button',
   component: Button,
   decorators: [withDesign],
+  parameters: {
+    backgrounds: {
+      values: [
+        { name: 'red', value: '#f00' },
+        { name: 'green', value: '#0f0' },
+        { name: 'blue', value: '#00f' },
+      ],
+    },
+  },
 } as ComponentMeta<typeof Button>;
 
 //👇 We create a “template” of how args map to rendering
@@ -36,6 +45,14 @@ Default.args = {
     alert('button clicked');
   },
 };
+
+Default.decorators = [
+  (Story) => (
+    <div style={{ margin: '3em' }}>
+      <Story />
+    </div>
+  ),
+];
 
 export const Create = Template.bind({});
 

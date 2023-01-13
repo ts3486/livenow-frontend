@@ -8,7 +8,7 @@ import React from 'react';
 
 const Footer = (props: any) => {
   return (
-    <footer className='bg-border dark:bg-gray-900 border-t-2 border-border mt-24 p-8'>
+    <footer className='bg-border dark:bg-gray-900 border-t-2 border-gray mt-24 p-8'>
       <div className='md:flex md:justify-between'>
         <div className='mb-6 md:mb-0'>
           <a href='https://flowbite.com/' className='flex items-center'>

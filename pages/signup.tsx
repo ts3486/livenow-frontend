@@ -42,13 +42,20 @@ export default function Venue() {
               <div className='flex flex-col items-center w-1/4'>
                 <Image className='rounded-full' src={coverImage} width={300} height={300} />
                 <label className='text-2xl font-bold mt-3' htmlFor='name'>
-                  Edit Profile Picture
+                  Add Profile Picture
                 </label>
               </div>
             </div>
             <div className='flex flex-col justify-start mb-5'>
               <label className='text-2xl font-bold' htmlFor='name'>
                 Username:
+              </label>
+              <input type='text' id='name' name='name' className='mt-3' />
+            </div>
+
+            <div className='flex flex-col justify-start mb-5'>
+              <label className='text-2xl font-bold' htmlFor='name'>
+                Genre:
               </label>
               <input type='text' id='name' name='name' className='mt-3' />
             </div>

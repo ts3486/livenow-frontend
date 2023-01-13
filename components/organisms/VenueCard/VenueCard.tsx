@@ -1,12 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
-import coverImage from '@/public/images/john-matychuk-gUK3lA3K7Yo-unsplash.jpg';
 import { useRouter } from 'next/router';
 
 interface VenueCardProps {
   title?: string;
   variant?: string;
   eventPage?: string;
+  image: any;
   function?: () => any;
 }
 
@@ -17,14 +17,18 @@ const VenueCard = (props: VenueCardProps) => {
     e.preventDefault();
     if (props.eventPage) {
       router.push(props.eventPage);
+    } else {
+      router.push('/venue/1');
     }
   };
 
   switch (props.variant) {
     default:
       return (
-        <div className='max-w-sm rounded overflow-hidden shadow-lg' onClick={navigateToEventPage}>
-          <Image className='w-full' src={coverImage} alt='Sunset in the mountains' height={300} width={400} />
+        <div
+          className='max-w-sm rounded overflow-hidden shadow-lg border-2 border-gray-100 hover:opacity-80'
+          onClick={navigateToEventPage}>
+          <Image className='w-full' src={props.image} alt='Sunset in the mountains' height={300} width={400} />
           <div className='px-6 py-4'>
             <div className='font-bold text-xl mb-2'>The Coldest Sunset</div>
             <p className='text-gray-700 text-base'>
@@ -33,13 +37,13 @@ const VenueCard = (props: VenueCardProps) => {
             </p>
           </div>
           <div className='px-6 pt-4 pb-2'>
-            <span className='inline-block bg-gray rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
+            <span className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
               #photography
             </span>
-            <span className='inline-block bg-gray rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
+            <span className='inline-block bg-gray-200  rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
               #travel
             </span>
-            <span className='inline-block bg-gray rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
+            <span className='inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
               #winter
             </span>
           </div>
@@ -47,8 +51,10 @@ const VenueCard = (props: VenueCardProps) => {
       );
     case 'long':
       return (
-        <div className='flex flex-row rounded overflow-hidden shadow-lg w-full h-fit my-2'>
-          <Image src={coverImage} alt='Sunset in the mountains' height={300} width={400} />
+        <div
+          className='flex flex-row rounded overflow-hidden shadow-lg w-full h-fit my-2 border-2 border-gray-100 hover:opacity-80'
+          onClick={navigateToEventPage}>
+          <Image src={props.image} alt='Sunset in the mountains' height={300} width={400} />
           <div className='flex flex-col justify-between p-4'>
             <div className='px-6 py-4'>
               <div className='font-bold text-xl mb-2'>The Coldest Sunset</div>
@@ -61,15 +67,24 @@ const VenueCard = (props: VenueCardProps) => {
               <div className='font-bold text-xl mb-2'>
                 <p className='text-gray-700 text-base'>Address</p>
               </div>
+              <div className='font-bold text-xl mb-2'>
+                <p className='text-gray-700 text-base'>Price</p>
+              </div>
+              <div className='font-bold text-xl mb-2'>
+                <p className='text-gray-700 text-base'>Tickets</p>
+              </div>
+              <div className='font-bold text-xl mb-2'>
+                <p className='text-gray-700 text-base'>Size</p>
+              </div>
             </div>
             <div className='px-6 pt-4 pb-2'>
-              <span className='inline-block bg-gray rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
+              <span className='inline-block bg-gray-200  rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
                 #photography
               </span>
-              <span className='inline-block bg-gray rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
+              <span className='inline-block bg-gray-200  rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
                 #travel
               </span>
-              <span className='inline-block bg-gray rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
+              <span className='inline-block bg-gray-200  rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2'>
                 #winter
               </span>
             </div>

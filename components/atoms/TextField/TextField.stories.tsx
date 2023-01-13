@@ -3,6 +3,7 @@
 import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { userEvent, within } from '@storybook/testing-library';
 
 import TextField from './TextField';
 
@@ -14,13 +15,23 @@ export default {
    */
   title: 'Atoms/TextField',
   component: TextField,
+  argTypes: {
+    onClick: { action: true },
+  },
 } as ComponentMeta<typeof TextField>;
 
 //👇 We create a “template” of how args map to rendering
 const Template: ComponentStory<typeof TextField> = (args) => <TextField {...args} />;
 
-export const FirstStory = Template.bind({});
+export const Default = Template.bind({});
 
-FirstStory.args = {
-  /*👇 The args you need here will depend on your component */
+Default.args = {
+  label: 'Email:',
+};
+
+Default.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  await userEvent.click(canvas.getByRole('input'));
+  await userEvent.keyboard('test test');
+  await expect(canvas.getByRole('input')).toHaveValue('test test');
 };
