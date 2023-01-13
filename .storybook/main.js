@@ -16,6 +16,9 @@ module.exports = {
       },
     },
   ],
+  features: {
+    interactionsDebugger: true,
+  },
   framework: '@storybook/react',
   core: {
     builder: '@storybook/builder-webpack5',

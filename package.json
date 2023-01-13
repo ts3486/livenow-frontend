@@ -10,6 +10,7 @@
     "build-storybook": "build-storybook",
     "build:css": "tailwind build styles/style.css -o dist/style.css",
     "chromatic": "npx chromatic --project-token=23b89dd7c8b9",
+    "test-storybook": "test-storybook",
     "test": "jest --watch"
   },
   "dependencies": {

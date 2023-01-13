@@ -4,6 +4,7 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 
 import TextField from './TextField';
 
@@ -29,9 +30,11 @@ Default.args = {
   label: 'Email:',
 };
 
-Default.play = async ({ canvasElement }) => {
+export const WithInput = Template.bind({});
+
+WithInput.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
-  await userEvent.click(canvas.getByRole('input'));
+  await userEvent.click(canvas.getByRole('textbox'));
   await userEvent.keyboard('test test');
-  await expect(canvas.getByRole('input')).toHaveValue('test test');
+  await expect(canvas.getByRole('textbox')).toHaveValue('test test');
 };
