@@ -22,7 +22,7 @@ export default function Index() {
             })}
           </div>
           <div className='flex justify-end'>
-            <div className='flex justify-center rounded-full py-2 px-6  mb-6  text-xl bg-secondary text-white font-bold w-1/8' onClick={() => router.push("search")}>See more venues --></div>
+            <div className='flex justify-center rounded-full py-2 px-6  mb-6  text-xl bg-secondary text-white font-bold w-1/8' onClick={() => router.push("search")}>See more venues</div>
           </div>
         </div>
       </section>
@@ -35,7 +35,7 @@ export default function Index() {
             })}
           </div>
           <div className='flex justify-end'>
-            <div className='flex justify-center rounded-full py-2 px-6  mb-6 text-xl bg-secondry text-white w-1/8 font-bold' onClick={() => router.push("search")}>See more venues --></div>
+            <div className='flex justify-center rounded-full py-2 px-6  mb-6 text-xl bg-secondry text-white w-1/8 font-bold' onClick={() => router.push("search")}>See more venues</div>
           </div>
         </div>
       </section>
