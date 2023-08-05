@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import coverImage from '@/public/images/john-matychuk-gUK3lA3K7Yo-unsplash.jpg';
+import Modal from '@/components/molecules/Modal/Modal';
 import ModalApply from '@/components/organisms/ModalApply/ModalApply';
 
 export default function Venue() {
