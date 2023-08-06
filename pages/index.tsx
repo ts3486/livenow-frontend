@@ -2,6 +2,8 @@ import Cover from '@/components/organisms/Cover/Cover';
 import VenueCard from '@/components/organisms/VenueCard/VenueCard';
 import coverImage from '@/public/images/john-matychuk-gUK3lA3K7Yo-unsplash.jpg';
 import { useRouter } from 'next/router';
+import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
+import axios from "axios";
 import { Router } from 'react-router-dom';
 
 export default function Index() {
@@ -41,4 +43,11 @@ export default function Index() {
       </section>
     </div>
   );
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const res = await fetch('https://api.github.com/repos/vercel/next.js')
+  const data = await res.json()
+  console.log(data);
+  return { props: { data } }
 }
