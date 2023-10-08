@@ -1,92 +1,88 @@
 import React, { useState } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import Image from 'next/image';
 import coverImage from '@/public/images/john-matychuk-gUK3lA3K7Yo-unsplash.jpg';
 import ModalApply from '@/components/organisms/ModalApply/ModalApply';
+import { passwordRules } from '../consts/validation';
 
 type FormModel = {
   name: string;
   email: string;
-  message?: string;
+  password: string;
 };
-
 const schema: yup.SchemaOf<FormModel> = yup.object().shape({
-  name: yup.string().required('名前を入力してください'),
-  email: yup.string().email('有効なメールアドレスを入力してください').required('メールアドレスを入力してください'),
-  message: yup.string(),
+  name: yup.string().required('Please enter a username'),
+  email: yup.string().email('Please enter a valid email address').required('Please enter your email address'),
+  password: yup.string().matches(passwordRules, { message: 'Please choose a stronger password' }).required('Required'),
 });
-
 export type Form = yup.InferType<typeof schema>;
 
 export default function Venue() {
-  const venues = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
+  const {
+    register,
+    formState: { errors },
+  } = useForm();
   const methods = useForm<Form>({
     mode: 'onBlur',
     defaultValues: {
       name: '',
       email: '',
-      message: '',
+      password: '',
     },
     resolver: yupResolver(schema),
   });
 
+  const onSubmit: SubmitHandler<Form> = (data) => {
+    console.log(data);
+    return data;
+  };
+
+  const onErrors: SubmitHandler<Form> = (data) => {
+    console.log(data);
+    return data;
+  };
+
   return (
     <div>
-      <section className='px-64 pt-24 pb-12'>
-        <FormProvider {...methods}>
-          <form action='/send-data-here' method='post' className='flex flex-col justify-center'>
-            <div className='flex  mb-12 justify-center'>
-              <div className='flex flex-col items-center w-1/4'>
-                <Image className='rounded-full' src={coverImage} width={300} height={300} />
-                <label className='text-2xl font-bold mt-3' htmlFor='name'>
-                  Add Profile Picture
+      <section className='px-64 pt-24 pb-12 flex  justify-center'>
+        <div
+          className='p-8 bg-gray-100 border-gray-100 border-2 w-1/2 flex flex-col justify-center
+        '>
+          <h1 className='font-bold text-3xl flex justify-center mb-16'>Signup</h1>
+          {/* MEMO: FormProvider should normally be used for nested forms but shouldn't hurt to leave it there in case of increasing forms */}
+          <FormProvider {...methods}>
+            <form onSubmit={methods.handleSubmit(onSubmit, onErrors)} method='post' className='flex flex-col justify-center'>
+              <div className='flex flex-col justify-start mb-5'>
+                <label className='text-xl font-bold' htmlFor='name'>
+                  Your name:
                 </label>
+                <input {...register('name')} type='text' className='mt-3' placeholder='Enter your name...' />
+                {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
               </div>
-            </div>
-            <div className='flex flex-col justify-start mb-5'>
-              <label className='text-2xl font-bold' htmlFor='name'>
-                Username:
-              </label>
-              <input type='text' id='name' name='name' className='mt-3' />
-            </div>
 
-            <div className='flex flex-col justify-start mb-5'>
-              <label className='text-2xl font-bold' htmlFor='name'>
-                Genre:
-              </label>
-              <input type='text' id='name' name='name' className='mt-3' />
-            </div>
-
-            <div className='flex flex-col justify-start mb-5'>
-              <label className='text-2xl font-bold' htmlFor='message'>
-                Profile:
-              </label>
-              <textarea id='message' name='message' className='h-48 mt-3' />
-            </div>
-
-            <div className='flex flex-col justify-start mb-5'>
-              <label className='text-2xl font-bold' htmlFor='message'>
-                Content:
-              </label>
-              <div className='flex flex-row flex-wrap mt-3'>
-                {venues.map((key) => {
-                  return <div className='bg-gray-200 w-1/3 h-64 border-2 border-gray-300'></div>;
-                })}
+              <div className='flex flex-col justify-start mb-5'>
+                <label className='text-xl font-bold' htmlFor='name'>
+                  Email:
+                </label>
+                <input {...register('email')} type='text' className='mt-3' placeholder='Enter your email...' />
               </div>
-            </div>
 
-            <div className='flex items-center justify-end border-t border-solid border-blueGray-200 rounded-b my-2'>
-              <button
-                className='w-full text-white bg-yellow-500 active:bg-yellow-700 font-bold uppercase text-sm py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mb-1 text-2xl'
-                type='button'>
-                Update
-              </button>
-            </div>
-          </form>
-        </FormProvider>
+              <div className='flex flex-col justify-start mb-5'>
+                <label className='text-xl font-bold' htmlFor='name'>
+                  Password:
+                </label>
+                <input {...register('password')} type='text' className='mt-3' placeholder='Enter a strong password...' />
+                {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
+              </div>
+
+              <div className='flex items-center justify-end border-t border-solid border-blueGray-200 rounded-b my-2'>
+                <input type='submit' />
+              </div>
+            </form>
+          </FormProvider>
+        </div>
       </section>
     </div>
   );
