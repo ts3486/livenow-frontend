@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { FormProvider, SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import Image from 'next/image';
-import coverImage from '@/public/images/john-matychuk-gUK3lA3K7Yo-unsplash.jpg';
-import ModalApply from '@/components/organisms/ModalApply/ModalApply';
-import { passwordRules } from '../consts/validation';
+import { passwordRules } from '@/consts/validation';
 
 type FormModel = {
   name: string;
@@ -13,9 +10,12 @@ type FormModel = {
   password: string;
 };
 const schema: yup.SchemaOf<FormModel> = yup.object().shape({
-  name: yup.string().required('Please enter a username'),
+  name: yup.string().required('Please enter your name'),
   email: yup.string().email('Please enter a valid email address').required('Please enter your email address'),
-  password: yup.string().matches(passwordRules, { message: 'Please choose a stronger password' }).required('Required'),
+  password: yup
+    .string()
+    .matches(passwordRules, { message: 'Please choose a stronger password' })
+    .required('Please enter a strong password'),
 });
 export type Form = yup.InferType<typeof schema>;
 
@@ -27,9 +27,9 @@ export default function Venue() {
   const methods = useForm<Form>({
     mode: 'onBlur',
     defaultValues: {
-      name: '',
-      email: '',
-      password: '',
+      name: 'dfafa',
+      email: 'test@gmail.com',
+      password: 'diofjaiofjaoifijaoi',
     },
     resolver: yupResolver(schema),
   });
@@ -39,7 +39,7 @@ export default function Venue() {
     return data;
   };
 
-  const onErrors: SubmitHandler<Form> = (data) => {
+  const onErrors: SubmitErrorHandler<Form> = (data) => {
     console.log(data);
     return data;
   };
@@ -59,7 +59,7 @@ export default function Venue() {
                   Your name:
                 </label>
                 <input {...register('name')} type='text' className='mt-3' placeholder='Enter your name...' />
-                {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
+                {errors.name && <p className='text-red-500'>{errors.name?.message}</p>}
               </div>
 
               <div className='flex flex-col justify-start mb-5'>
@@ -67,6 +67,7 @@ export default function Venue() {
                   Email:
                 </label>
                 <input {...register('email')} type='text' className='mt-3' placeholder='Enter your email...' />
+                {errors.email && <p className='text-red-500'>{errors.email?.message}</p>}
               </div>
 
               <div className='flex flex-col justify-start mb-5'>
@@ -74,7 +75,7 @@ export default function Venue() {
                   Password:
                 </label>
                 <input {...register('password')} type='text' className='mt-3' placeholder='Enter a strong password...' />
-                {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
+                {errors.password && <p className='text-red-500'>{errors.password?.message}</p>}
               </div>
 
               <div className='flex items-center justify-end border-t border-solid border-blueGray-200 rounded-b my-2'>

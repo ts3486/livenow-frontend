@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["components/*"],
-      "@/public/*": ["public/*"]
+      "@/public/*": ["public/*"],
+      "@/consts/*": ["consts/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/organisms/NavBar/Footer"],
