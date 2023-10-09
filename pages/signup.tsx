@@ -34,12 +34,10 @@ export default function Venue() {
   });
 
   const onSubmit: SubmitHandler<Form> = (data) => {
-    console.log(data);
     return data;
   };
 
   const onErrors: SubmitErrorHandler<Form> = (data) => {
-    console.log(data);
     return data;
   };
 
