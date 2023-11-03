@@ -4,6 +4,7 @@ import { RegisterForm, LoginForm } from '@/models/Auth';
 
 export const register = async (payload: RegisterForm) => {
   const response = await apiClient.post('/register', payload);
+  console.log(response);
   return response;
 };
 
