@@ -5,5 +5,4 @@ const headers = {};
 
 export const apiClient = axios.create({
   baseURL,
-  headers,
 });

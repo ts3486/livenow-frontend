@@ -1,6 +1,7 @@
 import { apiClient } from 'api/api';
+import { User } from '@/models/User';
 
-export const getUser = async () => {
-  const response = await apiClient.get('http://127.0.0.1:8000/users', { params: {} });
+export const getUser = async (): Promise<User[]> => {
+  const response = await apiClient.get('/users', { params: {} });
   return response.data;
 };

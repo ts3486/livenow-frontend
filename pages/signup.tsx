@@ -3,13 +3,10 @@ import { SubmitErrorHandler, SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { passwordRules } from '@/consts/validation';
+import { RegisterForm } from '@/models/Auth';
+import { register as registerUser } from '@/services/Auth';
 
-type FormModel = {
-  name: string;
-  email: string;
-  password: string;
-};
-const schema: yup.SchemaOf<FormModel> = yup.object().shape({
+const schema: yup.SchemaOf<RegisterForm> = yup.object().shape({
   name: yup.string().required('Please enter your name'),
   email: yup.string().email('Please enter a valid email address').required('Please enter your email address'),
   password: yup
@@ -33,12 +30,12 @@ export default function Venue() {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<Form> = (data) => {
-    return data;
+  const onSubmit: SubmitHandler<RegisterForm> = (payload) => {
+    registerUser(payload);
   };
 
-  const onErrors: SubmitErrorHandler<Form> = (data) => {
-    return data;
+  const onErrors: SubmitErrorHandler<Form> = (error) => {
+    return error;
   };
 
   return (

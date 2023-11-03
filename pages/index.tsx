@@ -6,21 +6,12 @@ import type { InferGetServerSidePropsType, GetServerSideProps } from 'next';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Router } from 'react-router-dom';
+import { getUser } from '@/services/User';
+import { User } from '@/models/User';
 
 export default function Index() {
   const router = useRouter();
   const venues = [1, 2, 3, 4];
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await axios
-        .get('http://127.0.0.1:8000/api/venue')
-        .then((res) => console.log(res.data))
-        .catch((error) => console.log(error.response));
-    };
-
-    fetchData();
-  }, []);
 
   return (
     <div>
@@ -65,8 +56,8 @@ export default function Index() {
   );
 }
 
-// export const getServerSideProps: GetServerSideProps = async () => {
-//   const { data } = await axios.get('http://127.0.0.1:8000/api/venue/1')
-//   console.log(data);
-//   return { props: { data } }
-// }
+export const getServerSideProps: GetServerSideProps = async () => {
+  return { props: {} };
+  // const data = await getUser();
+  // return { props: { data } };
+};
